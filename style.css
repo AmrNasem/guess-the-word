@@ -1,0 +1,212 @@
+:root {
+  --gray-color: rgb(31, 33, 34);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.main-title {
+  text-align: center;
+  margin: 30px 0 50px;
+}
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  background-color: #eee;
+  padding: 40px;
+}
+.tries .try {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+.tries .try span {
+  display: block;
+  padding: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.tries .try .word {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.tries .try .word input {
+  text-align: center;
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  border: none;
+  outline: none;
+  background-color: white;
+  border-radius: 2px;
+}
+.tries .try:not(.active),
+input:disabled {
+  opacity: 0.5;
+}
+.tries .try.active input:not(:disabled) {
+  border-bottom: 3px solid var(--gray-color);
+}
+.tries .try .word input:focus {
+  border-color: darkcyan;
+}
+.actions {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.actions button {
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.actions .check {
+  flex: 1;
+  background-color: orangered;
+}
+.actions .check:not(:disabled):hover {
+  background-color: rgb(241, 64, 0);
+}
+.actions .check:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.actions .hint {
+  background-color: darkcyan;
+}
+.actions .hint:not(:disabled):hover {
+  background-color: rgb(0, 129, 129);
+}
+.actions .hint:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.actions .new {
+  background-color: rgb(71, 164, 0);
+}
+.lose {
+  background-color: red !important;
+}
+.lose:hover {
+  background-color: rgb(241, 0, 0) !important;
+}
+.game .actions .new {
+  width: 100%;
+}
+.actions .new:hover {
+  background-color: rgb(66, 151, 0);
+}
+
+.keys h2 {
+  text-align: center;
+}
+.keys .key {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: white;
+  padding: 10px;
+  margin: 10px 0;
+}
+.key span {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+.key.green span {
+  background-color: green;
+}
+.key.orange span {
+  background-color: orange;
+}
+.key.gray span {
+  background-color: red;
+}
+.key p {
+  color: var(--gray-color);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  padding: 5px;
+}
+.hide {
+  display: none;
+}
+
+.overlay .modal {
+  background-color: white;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.219);
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-70%);
+  max-width: 500px;
+  margin: auto;
+}
+.popup {
+  animation: pop-up 0.3s;
+}
+.popdown {
+  animation: pop-up 0.3s alternate-reverse !important;
+}
+@keyframes pop-up {
+  0% {
+    transform: translateY(-70%) scale(0.8);
+    opacity: 0.2;
+  }
+  70% {
+    transform: translateY(-70%) scale(1.05);
+  }
+}
+
+.overlay .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.overlay .head h2 {
+  margin: 0;
+}
+.overlay .head button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.overlay .body {
+  margin: 40px 0;
+}
+.overlay .body span {
+  text-transform: capitalize !important;
+}
+
+.overlay .actions {
+  justify-content: flex-end;
+}
+.overlay .actions button:not(.new) {
+  color: var(--gray-color);
+}

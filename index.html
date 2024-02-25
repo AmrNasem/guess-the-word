@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess the word</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="overlay hide">
+      <div class="modal">
+        <div class="head">
+          <h2>Failed</h2>
+          <button>&Cross;</button>
+        </div>
+        <p class="body">
+          The word is <strong>"<span></span>"</strong>
+        </p>
+        <form action="" class="actions">
+          <button type="submit" class="new">New game</button>
+          <button type="button">Ok</button>
+        </form>
+      </div>
+    </div>
+    <h1 class="main-title">Guess the word</h1>
+    <div class="container">
+      <form class="game">
+        <div class="tries"><h4>Loading...</h4></div>
+        <div class="actions">
+          <button type="submit" class="check" disabled>Check word</button>
+          <button type="button" class="hint"><span></span> hints</button>
+          <button type="button" class="new">New game</button>
+        </div>
+      </form>
+      <div class="keys">
+        <h2>Key colors</h2>
+        <div class="key green">
+          <span></span>
+          <p>Letter is right and in place.</p>
+        </div>
+        <div class="key orange">
+          <span></span>
+          <p>Letter is right but not in place.</p>
+        </div>
+        <div class="key gray">
+          <span></span>
+          <p>Letter is wrong.</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="./words.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
